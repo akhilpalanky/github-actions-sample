@@ -1,0 +1,25 @@
+name: Test Workflow
+
+# Trigger the workflow on push and pull request events
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Define the jobs
+jobs:
+  test-job:
+    # Choose the virtual environment
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Run a basic test command
+      - name: Run a simple test
+        run: echo "Testing GitHub Actions on my repo!"
